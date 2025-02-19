@@ -48,3 +48,35 @@ console.log("User Category:", userCategory);
 let isAuthenticated = true;
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not authenticated";
 console.log("Authentication Status:", authenticationStatus);
+
+function dietaryServices(userType) {
+    let dietaryPerms = 0;
+    let dietaryString = "no access";
+    let oneOnOnePerms = false;
+    switch (userType) {
+        case "employee":
+            dietaryPerms = 2;
+            dietaryString = "full access";
+            break;
+        case "enrolled":
+            dietaryPerms = 2;
+            dietaryString = "full access";
+            oneOnOnePerms = true;
+            break;
+        case "subscriber":
+            dietaryPerms = 1;
+            dietaryString = "partial access";
+            break;
+        default:
+            //do nothing
+    }
+
+    console.log(`Hello user type ${userType}`);
+    console.log(`Dietary Services Permissions: ${dietaryString}`);
+    console.log(`One-on-One Services Permissions: ${oneOnOnePerms === true ? "Yes" : "No"}`);
+}
+
+dietaryServices("employee");
+dietaryServices("enrolled");
+dietaryServices("subscriber");
+dietaryServices("unknown");
